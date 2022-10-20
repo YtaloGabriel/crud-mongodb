@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Book = mongoose.model('Book', {
   imageLink: String,
-  isbn: Number,
+  isbn: String,
   title: String,
   author: String,
   summary: String,
