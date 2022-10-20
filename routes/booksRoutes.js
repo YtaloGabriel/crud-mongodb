@@ -6,7 +6,7 @@ const Book = require('../models/Book');
 // POST Method - Create book
 router.post('/', async (req, res) => {
   // Body of request
-  const { title, author, isbn, summary, releaseYear } = req.body;
+  const { imageLink, title, author, isbn, summary, releaseYear } = req.body;
 
   if (!title) {
     res.status(422).json({ error: 'O título é obrigatório!' });
@@ -14,6 +14,7 @@ router.post('/', async (req, res) => {
   }
 
   const book = {
+    imageLink,
     title,
     author,
     isbn,
@@ -58,9 +59,10 @@ router.get('/:id', async (req, res) => {
 // PUT Method - Update a book
 router.patch('/:id', async (req, res) => {
   const id = req.params.id;
-  const { title, author, isbn, summary, releaseYear } = req.body;
+  const { imageLink, title, author, isbn, summary, releaseYear } = req.body;
 
   const book = {
+    imageLink,
     title,
     author,
     isbn,
